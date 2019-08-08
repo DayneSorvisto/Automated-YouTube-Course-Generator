@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>USERS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'user_app/css/style.css' %}">
+    <script src="{% static 'course_app/js/create.js' %}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="center_content">
+            <h1 class="elegantshadow">Create Course</h1>
+        </div>
+        <div class="main_banner">
+            <div class="background_img"></div>
+            <div class="nav_box">
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/course">Home</a></li>
+                        <li><a href="#">Category</a>
+                            <ul>
+                                {% for cat in categories %}
+                                <li><a href="/course/select_crs/{{cat.id}}">{{cat.name}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li><a href="/course/create_course_form">Create</a></li>
+                        <li><a href="/profile">Profile</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <br>
+        
+        {% if messages %}
+        {% for message in messages %}
+                <p>{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+        <form action="create_course_post" method="POST">
+            {% csrf_token %}
+            <div class="form-group row">
+                <label for="title" class="col-sm-2 col-form-label">Title</label>
+                <div class="col-sm-10">
+                    <input name="title" type="text" class="form-control" id="title" placeholder="Title">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="subject_id" class="col-sm-2 col-form-label">Select Subject</label>
+                <div class="col-sm-10">
+                    <select name="subject_id" class="form-control" id="subject_id">
+                        <option value="">Please select or add a Subject</option>
+                        {% for subject in subjects %}
+                        <option value="{{ subject.id }}">{{ subject.name }}</option>
+                        {% endfor %}
+                        <option value="add">Add a new subject</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row indent add-subject">
+                <label for="subject_name" class="col-sm-2 col-form-label">Add Subject</label>
+                <div class="col-sm-10">
+                    <input name="subject_name" type="text" class="form-control" id="subject_name" placeholder="Add Subject">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="category_id" class="col-sm-2 col-form-label">Select Category</label>
+                <div class="col-sm-10">
+                    <select name="category_id" class="form-control" id="category_id">
+                        <option value="">Please select or add a Category</option>
+                        {% for category in categories %}
+                        <option value="{{ category.id }}" >{{ category.name }}</option>
+                        {% endfor %}
+                        <option value="add">Add a new category</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row indent add-category">
+                <label for="category_name" class="col-sm-2 col-form-label">Add Category</label>
+                <div class="col-sm-10">
+                    <input name="category_name" type="text" class="form-control" id="category_name" placeholder="Add Category">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="description" class="col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-10">
+                    <textarea name="description" class="form-control" id="description" placeholder="Brief description about the course"></textarea>
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label for="title">Title</label>
+                <input name="title" type="text" class="form-control" id="title" placeholder="Title">
+            </div> -->
+            <!-- <div class="form-group">
+                <label for="subject_id">Select Subject</label>
+                <select name="subject_id" class="form-control" id="subject_id">
+                    <option value="">Please select or add a Subject</option>
+                    {% for subject in subjects %}
+                    <option value="{{ subject.id }}" >{{ subject.name }}</option>
+                    {% endfor %}
+                </select>
+            </div> -->
+            <!-- <div class="form-group">
+                    <label for="subject_name">Add Subject</label>
+                    <input name="subject_name" type="text" class="form-control" id="subject_name" placeholder="Add Subject">
+            </div> -->
+            <!-- <div class="form-group">
+                <label for="category_id">Select Category</label>
+                <select name="category_id" class="form-control" id="category_id">
+                    <option value="">Please select or add a Category</option>
+                    {% for category in categories %}
+                    <option value="{{ category.id }}" >{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="category_name">Add Category</label>
+                <input name="category_name" type="text" class="form-control" id="category_name" placeholder="Add Category">
+            </div> -->
+            <!-- <div class="form-group">
+                <label for="description">Description</label>
+                <textarea name="description" class="form-control" id="description" rows="3"></textarea>
+            </div>-->
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="/course"><button type="button" class="btn btn-success">Cancel</button></a> 
+        </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</body>
+</html>

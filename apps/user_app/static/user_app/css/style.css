@@ -1,0 +1,391 @@
+/* *{
+    border: 1px dotted red;
+} */
+
+.container{
+    padding-top: 30px;
+    margin: auto;
+    width: 1000px;
+}
+.welcome_box, .box_header{
+    margin-bottom: 10px;
+}
+.elegantshadow {
+  color: #131313;
+  letter-spacing: .15em;
+  text-shadow: 
+    -1px 2px 1px #737272, 
+    -2px 4px 1px #767474, 
+    -3px 6px 1px #787777, 
+    -4px 8px 1px #7b7a7a, 
+    -5px 10px 1px #7f7d7d, 
+    -6px 12px 1px #828181, 
+    -7px 14px 1px #868585, 
+    -8px 16px 1px #8b8a89, 
+    -9px 18px 1px #8f8e8d 
+}
+.center_content{
+  text-align: center;
+}
+
+.box{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.left_box{
+    display: inline-block;
+    width: 48%;
+}
+
+.right_box{
+    display: inline-block;
+    width: 48%;
+}
+
+.button_box{
+    position: relative;
+    text-align: end;
+    margin-right: 50px;
+}
+
+.review_box{
+    margin-bottom: 20px;
+    border-top: 1px solid black;
+}
+
+.books_list{
+    overflow-y: auto;
+    height: 300px;
+}
+
+.header_box{
+    display: flex;
+    justify-content: space-between;
+}
+
+.indent{
+    margin-left: 30px;
+}
+
+.review{
+    width: 100%;
+    overflow-y: auto;
+}
+
+.rating {
+    font-size: 22px;
+    background: #FFF;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    opacity: 1;
+}
+
+.error{
+    color: red;
+}
+
+.main_banner{
+  width: auto;
+  height: 100px;
+  position: relative;
+}
+
+.background_img{
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to bottom, transparent, white 90%), url("../images/main_banner.jpg") center center no-repeat;
+  background-size: cover; 
+  opacity: 0.6;
+}
+.align-top{
+  vertical-align: top;
+}
+
+/* begin style for nav */
+.nav_box{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+nav {    
+    background: linear-gradient(to bottom, #555, #111);
+    border-bottom: 4px #aaa solid; 
+    border-radius: 10px;
+    display: block;
+    text-align: center;
+  }
+  nav ul {
+    margin: 0;
+    padding:0;
+    list-style: none;
+  }
+  .nav a {
+    display:block; 
+    background: #111; 
+    color:#fff; 
+    text-decoration: none;
+    padding: .8em 1.8em;
+    text-transform: uppercase;
+    font-size: 80%;letter-spacing: 2px;
+    text-shadow: 0 -1px 0 #000;
+    position: relative;
+  }
+  .nav{  
+    vertical-align: top; 
+    display: inline-block;
+    box-shadow: 1px -1px -1px 1px #000, -1px 1px -1px 1px #fff, 0 0 6px 3px #fff;
+    border-radius:6px;
+  }
+  .nav li{position: relative;}
+  .nav > li { 
+    float:left; 
+    /* border-bottom: 4px #aaa solid;  */
+    margin-right: 1px; 
+  } 
+  .nav > li > a { 
+    margin-bottom:1px;
+    /* box-shadow:inset 0 2em .33em -.5em #555;  */
+    background: linear-gradient(to bottom, #555, #111);
+  }
+  .nav > li:hover , .nav > li:hover >a{  border-bottom-color:orange;}
+  .nav li:hover > a { color:orange; }
+  .nav > li:first-child  { border-radius: 4px 0 0 4px;} 
+  .nav > li:first-child>a{border-radius: 4px 0 0 0;}
+  .nav > li:last-child  { 
+    border-radius: 0 0 4px 0; 
+    margin-right: 0;
+  } 
+  .nav > li:last-child >a{border-radius: 0 4px 0 0; }
+  /* .nav li li a { margin-top:1px} */
+  
+    .nav li a:first-child:nth-last-child(2):before { 
+     content:""; 
+     position: absolute; 
+     height:0; 
+     width: 0; 
+     border: 5px solid transparent; 
+     top: 50% ;
+     right:5px;  
+   }
+
+   /* submenu positioning*/
+.nav ul {
+  position: absolute;
+  white-space: nowrap;
+  border-bottom: 5px solid  orange;
+  z-index: 1;
+  left: -99999em;
+}
+.nav > li:hover > ul {
+  left: auto;
+  padding-top: 5px  ;
+  min-width: 100%;
+}
+.nav > li li ul {  border-left:1px solid #fff;}
+
+.nav > li li:hover > ul { 
+ /* margin-left: 1px */
+  left: 100%;
+  top: -1px;
+}
+/* arrow hover styling */
+.nav > li > a:first-child:nth-last-child(2):before { 
+  border-top-color: #aaa; 
+}
+.nav > li:hover > a:first-child:nth-last-child(2):before {
+  border: 5px solid transparent; 
+  border-bottom-color: orange; 
+  margin-top:-5px
+}
+.nav li li > a:first-child:nth-last-child(2):before {  
+  border-left-color: #aaa; 
+  margin-top: -5px
+}
+.nav li li:hover > a:first-child:nth-last-child(2):before {
+  border: 5px solid transparent; 
+  border-right-color: orange;
+  right: 10px; 
+}
+/* end style for nav */
+
+/* begin courses.html new course section */
+.recently_created_header{
+    margin-top: 50px;
+}
+
+.recently_created_videos{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.course_title, .course_creator, .no_margin{
+    margin: 0px;
+}
+
+.course_video{
+    margin-bottom: 15px;
+}
+/* end courses.html new course section */
+
+/* begin profile page focused styling */
+.profile_pic{
+  width: 200px;
+  height: 200px;
+}
+.profile_img_box, .stats_box{
+  display: inline-block;
+}
+.profile_img_box{
+  vertical-align: top;
+}
+.stats_row{
+  width: 400px;
+  margin-left: 20px;
+}
+.profile_box{
+  margin-top: 20px;
+}
+/* end profile page focused styling */
+
+/* quiz.html specific styles */
+.question_box{
+  margin-bottom: 30px;
+}
+.answers{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.funkyradio{
+  margin-bottom: 25px;
+}
+
+.funkyradio div {
+  clear: both;
+  overflow: hidden;
+}
+
+.funkyradio label {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #D1D3D4;
+  font-weight: normal;
+}
+
+.funkyradio input[type="radio"]:empty,
+.funkyradio input[type="checkbox"]:empty {
+  display: none;
+}
+
+.funkyradio input[type="radio"]:empty ~ label,
+.funkyradio input[type="checkbox"]:empty ~ label {
+  position: relative;
+  line-height: 2.5em;
+  text-indent: 3.25em;
+  /* margin-top: 1em; */
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.funkyradio input[type="radio"]:empty ~ label:before,
+.funkyradio input[type="checkbox"]:empty ~ label:before {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+  width: 2.5em;
+  background: #D1D3D4;
+  border-radius: 3px 0 0 3px;
+}
+
+.funkyradio input[type="radio"]:hover:not(:checked) ~ label,
+.funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
+  color: #888;
+}
+
+.funkyradio input[type="radio"]:hover:not(:checked) ~ label:before,
+.funkyradio input[type="checkbox"]:hover:not(:checked) ~ label:before {
+  content: '\2714';
+  text-indent: .9em;
+  color: #C2C2C2;
+}
+
+.funkyradio input[type="radio"]:checked ~ label,
+.funkyradio input[type="checkbox"]:checked ~ label {
+  color: #777;
+}
+
+.funkyradio input[type="radio"]:checked ~ label:before,
+.funkyradio input[type="checkbox"]:checked ~ label:before {
+  content: '\2714';
+  text-indent: .9em;
+  color: #333;
+  background-color: #ccc;
+}
+
+.funkyradio input[type="radio"]:focus ~ label:before,
+.funkyradio input[type="checkbox"]:focus ~ label:before {
+  box-shadow: 0 0 0 3px #999;
+}
+.funkyradio-primary input[type="radio"]:checked ~ label:before,
+.funkyradio-primary input[type="checkbox"]:checked ~ label:before {
+  color: #fff;
+  background-color: #337ab7;
+}
+
+/* end quiz.html specific styles */
+
+/* begin read.html specifics */
+.course_header{
+  width: 100%;
+}
+.passed{
+  color: green;
+  font-weight: bold;
+}
+.quiz_question{
+  font-size: 3rem;
+  font-weight: bold;
+}
+.left_side_box{
+  width: 30%;
+  height: auto;
+  display: inline-block;
+  vertical-align: top;
+  border: 1px solid black;
+  padding: 5px;
+}
+.right_side_box{
+  width: 68%;
+  height: auto;
+  display: inline-block;
+  margin-left: 15px;
+  vertical-align: top;
+  border-top: 1px solid black;
+}
+.thumbnail{
+  width: 100%;
+}
+.video_box{
+  margin-bottom: 20px;
+}
+.text_center{
+  text-align: center;
+}
+.video_lesson_box{
+  margin: auto;
+  width: 90%;
+  height: 400px;
+}
+/* end red.html specifics */

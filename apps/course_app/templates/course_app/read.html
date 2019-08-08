@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ course.title }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'user_app/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="welcome_box center_content">
+            <h1 class="elegantshadow">Course: {{ course.title }}</h1>
+        </div>
+
+        <div class="main_banner">
+            <div class="background_img"></div>
+            <div class="nav_box">
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/course">Home</a></li>
+                        <li><a href="#">Category</a>
+                            <ul>
+                                <!-- TODO JQuery to update the courses content once a category has been selected -->
+                                {% for cat in category %}
+                                <li><a href="/course/select_crs/{{cat.id}}">{{cat.name}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li><a href="/course/create_course_form">Create</a></li>
+                        <li><a href="/profile">Profile</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- begin header section -->
+        <div class="course-header">
+            {% if course_passed %}
+            <h1>{{ course.title }} <span class="passed"> [Course Passed] </span></h1>
+            {% else %}
+            <h1>{{ course.title }}</h1>
+            {% endif %}
+            <p>Subject: {{ course.subject.name }}</p>
+            <p>Category: {{ course.category.name }}</p>
+            <p>Description: {{ course.description }}</p>
+            {% if course_liked %}
+                <p>Likes: {{ course.likes.all|length }} 
+                    <a href="/course/{{ course.id }}/unlike_course"><button type="button" class="btn btn-danger">Unlike</button></a>
+                </p>
+            {% else %}
+                <p>Likes: {{ course.likes.all|length }} 
+                    <a href="/course/{{ course.id }}/like_course"><button type="button" class="btn btn-primary">Like</button></a>
+                </p>
+            {% endif %}
+            {% if author %}
+                <a href="/course/{{ course.id }}/edit_course_form"><button type="button" class="btn btn-primary">Edit</button></a>
+                <a href="/course/{{ course.id }}/video/create_video_form"><button type="button" class="btn btn-primary">Add Video</button></a>
+            {% endif %}
+        </div>
+        <!-- end header section -->
+
+        <!-- begin left side -->
+        <div class="left_side_box">
+            <div class="text_center">
+            {% if course.videos.all|length == 0 %}
+            <h6>This course needs a video!</h6>
+            {% endif %}
+            </div>
+            {% for video in course.videos.all %}
+            <div class="video_box">
+                <h3>{{ video.title }}</h3>
+                <img class="thumbnail" src="{{ video.thumbnail }}" alt="video thumbnail">
+                <p>{{ video.description|truncatewords:10 }}</p>
+                <a href="/course/{{ course.id }}/video/{{ video.id }}">
+                    <button type="button" class="btn btn-primary">Start Video</button>
+                </a>
+                {% if author %}
+                <a href="/course/{{ course.id }}/video/{{ video.id }}/edit_video_form"><button type="button" class="btn btn-danger">Edit Video</button></a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        <!-- end left side -->
+
+        <!-- begin right side -->
+        <div class="right_side_box">
+            <div class="text_center">
+            </div>
+            <div class="video_lesson_box">
+                <!-- video code goes here -->
+            </div>
+        </div>
+        <!-- end right side -->
+        
+        <!-- TODO just keeping as reference. Delete once everything above is correct -->
+        <!-- begin left side -->
+        <!-- <div class="row">
+            <div class="col-md-3">
+                <h1>List of videos</h1>
+                {% for video in course.videos.all %}
+                <h1>{{ video.title }}</h1>
+                <p>{{ video.description }}</p>
+                <img src="{{ video.thumbnail }}" class="img-fluid" alt="">
+                <p>{{ video.likes }}</p>
+                <a href="/course/{{ course.id }}/video/{{ video.id }}"><button type="button" class="btn btn-primary">Start Video</button></a>
+                {% endfor %}
+            </div> -->
+            <!-- end left side -->
+            
+            <!-- begin right side -->
+            <!-- <div class="col-md-9">
+                <h1>Video</h1>
+                <p>Please select a video</p>
+            </div>
+        </div> -->
+        <!-- end right side -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</body>
+</html>

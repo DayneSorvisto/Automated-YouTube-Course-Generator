@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Video</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'user_app/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="center_content">
+            <h1 class="elegantshadow">Edit Video: {{ course.title }}</h1>
+        </div>
+        <div class="main_banner">
+            <div class="background_img"></div>
+            <div class="nav_box">
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/course">Home</a></li>
+                        <li><a href="#">Category</a>
+                            <ul>
+                                {% for cat in categories %}
+                                <li><a href="/course/select_crs/{{cat.id}}">{{cat.name}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li><a href="/course/create_course_form">Create</a></li>
+                        <li><a href="/profile">Profile</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        
+        <br>
+
+        {% if messages %}
+        {% for message in messages %}
+                <p>{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+
+        <!-- <h1>Edit Video</h1>
+        {% if messages %}
+        {% for message in messages %}
+                <p>{{ message }}</p>
+        {% endfor %}
+        {% endif %} -->
+        <form action="/course/{{ course.id }}/video/{{ video.id }}/edit_video_post" method="POST">
+            {% csrf_token %}
+            <div class="form-group row">
+                <label for="title" class="col-sm-2 col-form-label">Title</label>
+                <div class="col-sm-10">
+                    <input name="title" type="text" class="form-control" id="title" value="{{video.title}}">
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label for="title">Title</label>
+                <input name="title" type="text" class="form-control" id="title" value="{{video.title}}">
+            </div> -->
+            <div class="form-group row">
+                <label for="url" class="col-sm-2 col-form-label">URL</label>
+                <div class="col-sm-10">
+                    <input name="url" type="text" class="form-control" id="url" value="{{video.url}}">
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label for="url">URL</label>
+                <input name="url" type="text" class="form-control" id="url" value="{{ video.url }}">
+            </div> -->
+            <div class="form-group row">
+                <label for="description" class="col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-10">
+                    <textarea name="description" type="text" class="form-control" id="description">{{video.description}}</textarea>
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label for="description">Description</label>
+                <textarea name="description" class="form-control" id="description" rows="3">{{ video.description }}</textarea>
+            </div> -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="/course/{{ course.id }}/video/{{ video.id }}/delete_video"><button type="button" class="btn btn-danger">Delete</button></a>
+            <a href="/course/{{ course.id }}/video/{{ video.id }}"><button type="button" class="btn btn-success">Cancel</button></a> 
+        </form>
+        <br>
+
+        <h1>Add Question:</h1>
+        <form action="/course/{{ course.id }}/video/{{ video.id }}/create_question_post" method="POST">{% csrf_token %}
+            <div class="form-group row">
+                <label for="question" class="col-sm-2 col-form-label">Question</label>
+                <div class="col-sm-10">
+                    <input name="question" type="text" class="form-control" id="question">
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label for="question">Question</label>
+                <input name="question" type="text" class="form-control" id="question">
+            </div> -->
+            <div class="form-group row">
+                <label for="option1" class="col-sm-2 col-form-label">Option A</label>
+                <div class="col-sm-10">
+                    <input name="option1" type="text" class="form-control" id="option1">
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label for="option1">Option A</label>
+                <input name="option1" type="text" class="form-control" id="option1">
+            </div> -->
+            <div class="form-group row">
+                <label for="option2" class="col-sm-2 col-form-label">Option B</label>
+                <div class="col-sm-10">
+                    <input name="option2" type="text" class="form-control" id="option2">
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label for="option2">Option B</label>
+                <input name="option2" type="text" class="form-control" id="option2">
+            </div> -->
+            <div class="form-group row">
+                <label for="option3" class="col-sm-2 col-form-label">Option C</label>
+                <div class="col-sm-10">
+                    <input name="option3" type="text" class="form-control" id="option3">
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label for="option3">Option C</label>
+                <input name="option3" type="text" class="form-control" id="option3">
+            </div> -->
+            <div class="form-group row">
+                <label for="option4" class="col-sm-2 col-form-label">Option D</label>
+                <div class="col-sm-10">
+                    <input name="option4" type="text" class="form-control" id="option4">
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label for="option4">Option D</label>
+                <input name="option4" type="text" class="form-control" id="option4">
+            </div> -->
+            <div class="form-group row">
+                <label for="option5" class="col-sm-2 col-form-label">Option E</label>
+                <div class="col-sm-10">
+                    <input name="option5" type="text" class="form-control" id="option5">
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label for="option5">Option E</label>
+                <input name="option5" type="text" class="form-control" id="option5">
+            </div> -->
+            <div class="form-group row">
+                <label for="answer" class="col-sm-2 col-form-label">Answer</label>
+                <select name="answer" class="col-sm-1">
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                    <option>D</option>
+                    <option>E</option>
+                </select>
+            </div>
+            <!-- <div class="form-group">
+                <label for="answer">Answer</label>
+                <select name="answer" class="form-control" id="answer">
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                    <option>D</option>
+                    <option>E</option>
+                </select>
+            </div> -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Question</th>
+                    <th scope="col">Answer</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for question in questions %}
+                    <tr>
+                        <th scope="row">{{ question.question }}</th>
+                        <td>{{ question.answer }}</td>
+                        <td>
+                            <a href="/course/{{ course.id }}/video/{{ video.id }}/question/{{ question.id }}/edit_question_form"><button class="btn btn-primary" type="button" >Edit</button></a>
+                            <a href="/course/{{ course.id }}/video/{{ video.id }}/question/{{ question.id }}/delete_question"><button type="button" class="btn btn-danger">Delete</button></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'user_app/css/style.css' %}">
+    <script src="{% static 'user_app/js/index.js' %}" defer></script>
+    <title>Welcome</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="welcome_box center_content">
+            <h1 class="elegantshadow">Welcome to Learn With YouTube!</h1>
+        </div>
+
+        <div class="main_banner">
+            <div class="background_img"></div>
+        </div>
+
+        <div class="box">
+
+            <!-- begin left -->
+            <div class="left_box">
+                <div class="box_header">
+                    <h4>Register</h4>
+                </div>
+                <form id="register_form" action="/register_user" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group row">
+                        <label for="first_name" class="col-sm-3 col-form-label">First Name</label>
+                        <div class="col-sm-8">
+                            <input id="first_name" name="first_name" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <p id="fname_result" class="error">
+                        {% if messages %}
+                        {% for message in messages %}
+                        {% if "first_name_error" in message.tags %}
+                        {{ message }}
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                    </p>
+                    <div class="form-group row">
+                        <label for="last_name" class="col-sm-3 col-form-label">Last Name</label>
+                        <div class="col-sm-8">
+                            <input id="last_name" name="last_name" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <p id="lname_result" class="error">
+                        {% if messages %}
+                        {% for message in messages %}
+                        {% if "last_name_error" in message.tags %}
+                        {{ message }}
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                    </p>
+                    <div class="form-group row">
+                        <label for="register_email" class="col-sm-3 col-form-label">Email</label>
+                        <div class="col-sm-8">
+                            <input id="register_email" name="email" type="email" class="form-control"
+                                autocomplete="email">
+                        </div>
+                    </div>
+                    <p id="register_email_result" class="error">
+                        {% if messages %}
+                        {% for message in messages %}
+                        {% if "email_error" in message.tags %}
+                        {{ message }}
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                    </p>
+                    <div class="form-group row">
+                        <label for="password" class="col-sm-3 col-form-label">Password</label>
+                        <div class="col-sm-8">
+                            <input name="password" type="password" class="form-control" id="password"
+                                autocomplete="new-password">
+                            <small class="form-text text-muted">*One upper case, one number, 8-15 characters</small>
+                        </div>
+                    </div>
+                    <p id="password_result" class="error">
+                        {% if messages %}
+                        {% for message in messages %}
+                        {% if "password_error" in message.tags %}
+                        {{ message }}
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                    </p>
+                    <div class="form-group row">
+                        <label for="confirm_password" class="col-sm-3 col-form-label">Confirm PW</label>
+                        <div class="col-sm-8">
+                            <input name="conf_pswd" type="password" class="form-control" id="confirm_password"
+                                autocomplete="new-password">
+                        </div>
+                    </div>
+                    {% if messages %}
+                    {% for message in messages %}
+                    {% if "conf_pswd_error" in message.tags %}
+                    <p class="error">{{ message }}</p>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                    <div class="button_box">
+                        <p class="btn btn-primary align-top" id="start_login">Login</p>
+                        <button class="btn btn-primary align-top">Register</button>
+                    </div>
+                </form>
+            </div>
+            <!-- end left -->
+
+            <!-- begin right -->
+            <div class="right_box">
+                <div class="box_header">
+                    <h4>Login</h4>
+                </div>
+                <form id="#login_form" action="/login" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group row">
+                        <label for="login_email" class="col-sm-3 col-form-label">Email</label>
+                        <div class="col-sm-8">
+                            <input id="login_email" name="email" type="text" class="form-control" autocomplete="email">
+                        </div>
+                    </div>
+                    {% if messages %}
+                    {% for message in messages %}
+                    {% if "login_email_error" in message.tags %}
+                    <p class="error">{{ message }}</p>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                    <div class="form-group row">
+                        <label for="login_password" class="col-sm-3 col-form-label">Password</label>
+                        <div class="col-sm-8">
+                            <input name="password" type="password" class="form-control" id="login_password"
+                                autocomplete="current-password">
+                        </div>
+                    </div>
+                    {% if messages %}
+                    {% for message in messages %}
+                    {% if "login_pswd_error" in message.tags %}
+                    <p class="error">{{ message }}</p>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                    <div class="button_box">
+                        <p class="btn btn-primary align-top" id="start_registration">Register</p>
+                        <button class="btn btn-primary align-top">Login</button>
+                    </div>
+                </form>
+            </div>
+            <!-- end right -->
+
+        </div>
+        {% if messages %}
+        {% for message in messages %}
+        {% if "log_in" in message.tags %}
+        <h1 class="error">{{ message }}</h1>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+    </div>
+</body>
+
+</html>

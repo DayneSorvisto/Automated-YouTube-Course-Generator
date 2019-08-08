@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Question</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'user_app/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="center_content">
+            <h1 class="elegantshadow">Edit Question</h1>
+        </div>
+        <div class="main_banner">
+            <div class="background_img"></div>
+            <div class="nav_box">
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/course">Home</a></li>
+                        <li><a href="#">Category</a>
+                            <ul>
+                                {% for cat in categories %}
+                                <li><a href="/course/select_crs/{{cat.id}}">{{cat.name}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li><a href="/course/create_course_form">Create</a></li>
+                        <li><a href="/profile">Profile</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <br>
+
+        {% if messages %}
+        {% for message in messages %}
+                <p>{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+        <form action="/course/{{ course.id }}/video/{{ video.id }}/question/{{ question.id }}/edit_question_post" method="POST">
+            {% csrf_token %}
+            <div class="form-group row">
+                <label for="question" class="col-sm-2 col-form-label">Question</label>
+                <div class="col-sm-10">
+                    <input name="question" type="text" class="form-control" id="question" value="{{ question.question }}">
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label for="question">Question</label>
+                <input name="question" type="text" class="form-control" id="question" value="{{ question.question }}">
+            </div> -->
+            <div class="form-group row">
+                <label for="option1" class="col-sm-2 col-form-label">Option A</label>
+                <div class="col-sm-10">
+                    <input name="option1" type="text" class="form-control" id="option1" value="{{ question.option1 }}">
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label for="option1">Option A</label>
+                <input name="option1" type="text" class="form-control" id="option1" value="{{ question.option1 }}">
+            </div> -->
+            <div class="form-group row">
+                <label for="option2" class="col-sm-2 col-form-label">Option B</label>
+                <div class="col-sm-10">
+                    <input name="option2" type="text" class="form-control" id="option2" value="{{ question.option2 }}">
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label for="option2">Option B</label>
+                <input name="option2" type="text" class="form-control" id="option2" value="{{ question.option2 }}">
+            </div> -->
+            <div class="form-group row">
+                <label for="option3" class="col-sm-2 col-form-label">Option C</label>
+                <div class="col-sm-10">
+                    <input name="option3" type="text" class="form-control" id="option3" value="{{ question.option3 }}">
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label for="option3">Option C</label>
+                <input name="option3" type="text" class="form-control" id="option3" value="{{ question.option3 }}">
+            </div> -->
+            <div class="form-group row">
+                <label for="option4" class="col-sm-2 col-form-label">Option D</label>
+                <div class="col-sm-10">
+                    <input name="option4" type="text" class="form-control" id="option4" value="{{ question.option4 }}">
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label for="option4">Option D</label>
+                <input name="option4" type="text" class="form-control" id="option4" value="{{ question.option4 }}">
+            </div> -->
+            <div class="form-group row">
+                <label for="option5" class="col-sm-2 col-form-label">Option E</label>
+                <div class="col-sm-10">
+                    <input name="option5" type="text" class="form-control" id="option5" value="{{ question.option5 }}">
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label for="option5">Option E</label>
+                <input name="option5" type="text" class="form-control" id="option5" value="{{ question.option5 }}">
+            </div> -->
+            <div class="form-group row">
+                <label for="answer" class="col-sm-2 col-form-label">Answer</label>
+                <select name="answer" class="col-sm-1">
+                    {% if question.answer == 'A' %}
+                    <option selected>A</option>
+                    {% else %}
+                    <option>A</option>
+                    {% endif %}
+                    
+                    {% if question.answer == 'B' %}
+                    <option selected>B</option>
+                    {% else %}
+                    <option>B</option>
+                    {% endif %}
+
+                    {% if question.answer == 'C' %}
+                    <option selected>C</option>
+                    {% else %}
+                    <option>C</option>
+                    {% endif %}
+
+                    {% if question.answer == 'D' %}
+                    <option selected>D</option>
+                    {% else %}
+                    <option>D</option>
+                    {% endif %}
+
+                    {% if question.answer == 'E' %}
+                    <option selected>E</option>
+                    {% else %}
+                    <option>E</option>
+                    {% endif %}
+                </select>
+            </div>
+            <!-- <div class="form-group">
+                <label for="answer">Answer</label>
+                <select name="answer" class="form-control" id="answer" value="{{ question.answer }}">
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                    <option>D</option>
+                    <option>E</option>
+                </select>
+            </div> -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</body>
+</html>

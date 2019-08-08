@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'user_app/css/style.css' %}">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <div class="welcome_box center_content">
+            <h1 class="elegantshadow">Welcome to YouCourse!</h1>
+        </div>
+
+        <div class="main_banner">
+            <div class="background_img"></div>
+            <div class="nav_box">
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/course">Home</a></li>
+                        <li><a href="#">Category</a>
+                            <ul>
+                                {% for cat in category %}
+                                <li><a href="/course/select_crs/{{cat.id}}">{{cat.name}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li><a href="/course/create_course_form">Create</a></li>
+                        <!-- <li><a href="#">Resume</a>
+                            <ul>
+                                <li><a href="#">item a lonng submenu</a></li>
+                                <li><a href="#">item</a>
+                                    <ul>
+                                        <li><a href="#">Ray</a></li>
+                                        <li><a href="#">Veronica</a></li>
+                                        <li><a href="#">Bushy</a></li>
+                                        <li><a href="#">Havoc</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">item</a></li>
+                                <li><a href="#">item</a></li>
+                            </ul>
+                        </li> -->
+                        <!-- <li><a href="#">Download</a></li> -->
+                        <!-- <li><a href="#">Rants</a>
+                            <ul>
+                                <li><a href="#">item</a></li>
+                                <li><a href="#">item</a></li>
+                                <li><a href="#">item</a></li>
+                                <li><a href="#">item</a></li>
+                            </ul>
+                        </li> -->
+                        <li><a href="/profile">Profile</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- TODO utilize the same section but change the wording and video output when a category is clicked -->
+        <div class="recently_created_box">
+            <div class="recently_created_header center_content">
+                <h3>Recently created courses</h3>
+            </div>
+        
+            <div class="recently_created_videos">
+                {% if cat_selected %}
+                    {% for course in cat_crs %}
+                    <div class="course_video">
+                        <a href="/course/{{ course.id }}">
+                            <img src="{% static 'user_app/images/course_img_placeholder.png' %}" alt="Course thumbnail" width='350' height='209'>
+                        </a>
+                        <p class="course_title">Title: {{ course.title }}</p>
+                        <p class="course_creator">Creator: {{ course.author.first_name}}</p>
+                        <p class="course_created_at">Created Date: {{ course.created_at}}</p>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    {% for course in courses %}
+                    <div class="course_video">
+                        <!-- <iframe width="350" height="209"
+                        src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                        </iframe> -->
+                        <a href="/course/{{ course.id }}">
+                            <img src="{% static 'user_app/images/course_img_placeholder.png' %}" alt="Course thumbnail" width='350' height='209'>
+                        </a>
+                        <p class="course_title">Title: {{ course.title }}</p>
+                        <p class="course_creator">Creator: {{ course.author.first_name}}</p>
+                        <p class="course_created_at">Created Date: {{ course.created_at}}</p>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
