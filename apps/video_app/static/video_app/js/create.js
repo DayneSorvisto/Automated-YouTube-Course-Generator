@@ -15,7 +15,7 @@ $(document).ready(function () {
     const youtube_id = youtube_parser($('#url').val());
     if (youtube_id) {
       $.ajax({
-        url: `https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${  youtube_id  }&key=AIzaSyC_Rr6LKYWycQH-sYikgNswVOJj4k0t9aQ`,
+        url: `https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${  youtube_id  }&key=AIzaSyD8zLRxL3sMpldE_F2PKs0du8PJJkYUJjA`,
         method: 'GET',
       }).done(function (res) {
         if ($('#title').val() === '') {
