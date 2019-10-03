@@ -57,11 +57,11 @@ class Subject(models.Model):
 
 class Course(models.Model):
     title = models.CharField(max_length=255)
-    subject = models.ForeignKey(Subject,related_name="courses", on_delete=models.DO_NOTHING)
-    category = models.ForeignKey(Category,related_name="courses", on_delete=models.DO_NOTHING)
+    subject = models.ForeignKey(Subject,related_name="courses")
+    category = models.ForeignKey(Category,related_name="courses")
     description = models.CharField(max_length=255)
     likes = models.ManyToManyField(User, related_name="courses_liked")
-    author = models.ForeignKey(User, related_name="courses_authored", on_delete=models.DO_NOTHING)
+    author = models.ForeignKey(User, related_name="courses_authored")
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
     objects = CourseManager()
