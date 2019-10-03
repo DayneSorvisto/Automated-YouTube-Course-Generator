@@ -57,7 +57,7 @@ class Question(models.Model):
     option4 = models.CharField(max_length=255)
     option5 = models.CharField(max_length=255)
     answer = models.CharField(max_length=255)
-    video = models.ForeignKey(Video, related_name="questions")
+    video = models.ForeignKey(Video, related_name="questions", on_delete=models.DO_NOTHING)
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
     objects = QuestionManager()

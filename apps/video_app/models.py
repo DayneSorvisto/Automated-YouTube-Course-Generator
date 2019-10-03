@@ -57,6 +57,6 @@ class Video(models.Model):
     likes = models.ManyToManyField(User, related_name="videos_liked")
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
-    course = models.ForeignKey(Course, related_name='videos')
+    course = models.ForeignKey(Course, related_name='videos', on_delete=models.DO_NOTHING)
     users_completed = models.ManyToManyField(User, related_name="videos_completed")
     objects = VideoManager()
