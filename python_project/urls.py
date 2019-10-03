@@ -16,7 +16,6 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-
 from apps.user_app.models import User as U
 class UAdmin(admin.ModelAdmin):
     pass

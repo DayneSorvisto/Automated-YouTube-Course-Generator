@@ -1,0 +1,14 @@
+version: "2"
+services:
+  django:
+    container_name: django_server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: johnmweisz/education_app:latest
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/var/www/myproject
+    ports:
+      - "8000:8000"
