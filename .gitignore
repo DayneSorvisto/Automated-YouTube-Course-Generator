@@ -1,8 +1,5 @@
 # Created by https://www.gitignore.io
 
-# Avoid changing Deployed Django Files
-python_project/
-
 ### OSX ###
 .DS_Store
 .AppleDouble
