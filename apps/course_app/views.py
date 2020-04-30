@@ -18,14 +18,15 @@ def index(request):
             "courses": Course.objects.all().order_by('-created_at')[:6],
             'cat_selected': False,
         }
-    return render(request, "course_app/courses.html", context)
+    return render(request, "course_app/courses.html", context) 
 
 def create_course_form(request):
     context = {
         'categories': Category.objects.all(),
         'subjects': Subject.objects.all(),
     }
-    return render(request, "course_app/create.html", context)
+    return render(request, "course_app/create.html", context) 
+    #return render(request, "course_app/create.html", context) if request.user.is_superuser  else HttpResponse("<h1> Sorry, this feature is for premium members only</h1>")
 
 def create_course_post(request):
     if 'user_id' in request.session and request.method == 'POST': #user is logged in and method is post
