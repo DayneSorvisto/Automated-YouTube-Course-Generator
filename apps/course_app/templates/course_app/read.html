@@ -11,6 +11,9 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     {% load static %}
     <link rel="stylesheet" href="{% static 'user_app/css/style.css' %}">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script> 
+    <script src="http://www.skulpt.org/js/skulpt.min.js" type="text/javascript"></script> 
+    <script src="http://www.skulpt.org/js/skulpt-stdlib.js" type="text/javascript"></script> 
 </head>
 <body>
     <div class="container">
@@ -97,32 +100,61 @@
                 <!-- video code goes here -->
             </div>
         </div>
-        <!-- end right side -->
         
-        <!-- TODO just keeping as reference. Delete once everything above is correct -->
-        <!-- begin left side -->
-        <!-- <div class="row">
-            <div class="col-md-3">
-                <h1>List of videos</h1>
-                {% for video in course.videos.all %}
-                <h1>{{ video.title }}</h1>
-                <p>{{ video.description }}</p>
-                <img src="{{ video.thumbnail }}" class="img-fluid" alt="">
-                <p>{{ video.likes }}</p>
-                <a href="/course/{{ course.id }}/video/{{ video.id }}"><button type="button" class="btn btn-primary">Start Video</button></a>
-                {% endfor %}
-            </div> -->
-            <!-- end left side -->
-            
-            <!-- begin right side -->
-            <!-- <div class="col-md-9">
-                <h1>Video</h1>
-                <p>Please select a video</p>
-            </div>
-        </div> -->
-        <!-- end right side -->
-        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <script type="text/javascript"> 
+        // output functions are configurable.  This one just appends some text
+        // to a pre element.
+        function outf(text) { 
+            var mypre = document.getElementById("output"); 
+            mypre.innerHTML = mypre.innerHTML + text; 
+        } 
+        function builtinRead(x) {
+            if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+                    throw "File not found: '" + x + "'";
+            return Sk.builtinFiles["files"][x];
+        }
+
+        // Here's everything you need to run a python program in skulpt
+        // grab the code from your textarea
+        // get a reference to your pre element for output
+        // configure the output function
+        // call Sk.importMainWithBody()
+        function runit() { 
+        var prog = document.getElementById("yourcode").value; 
+        var mypre = document.getElementById("output"); 
+        mypre.innerHTML = ''; 
+        Sk.pre = "output";
+        Sk.configure({output:outf, read:builtinRead}); 
+        (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'mycanvas';
+        var myPromise = Sk.misceval.asyncToPromise(function() {
+            return Sk.importMainWithBody("<stdin>", false, prog, true);
+        });
+        myPromise.then(function(mod) {
+            console.log('success');
+        },
+            function(err) {
+            console.log(err.toString());
+        });
+        } 
+        </script> 
+
+        <h3>Try This</h3> 
+        <form> 
+        <textarea id="yourcode" cols="40" rows="10">import turtle
+
+        t = turtle.Turtle()
+        t.forward(100)
+
+        print "Hello World" 
+        </textarea><br /> 
+        <button type="button" onclick="runit()">Run</button> 
+        </form> 
+        <pre id="output" ></pre> 
+        <!-- If you want turtle graphics include a canvas -->
+        <div id="mycanvas"></div> 
+
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 </html>

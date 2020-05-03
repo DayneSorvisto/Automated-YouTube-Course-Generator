@@ -97,7 +97,7 @@ def read_course(request, course_id):
     #check if course is premium 
     #get user 
     
-    return HttpResponse("<h1> test </h1>") if (not user_premium and course_premium) else render(request, "course_app/read.html", context) 
+    return render(request, "course_app/upgrade.html") if (not user_premium and course_premium) else render(request, "course_app/read.html", context) 
 
 def delete_course(request, course_id):
     if Course.objects.filter(id=course_id) and request.session['user_id'] == Course.objects.get(id=course_id).author.id:

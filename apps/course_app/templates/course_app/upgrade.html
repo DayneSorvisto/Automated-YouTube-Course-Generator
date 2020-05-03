@@ -1,3 +1,5 @@
+<!-- paypal.me/albertabootcamps
+https://www.patreon.com/preview/9a811c3326b341e8b0dd4d88a9eea19c-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +19,7 @@
 <body>
     <div class="container">
         <div class="welcome_box center_content">
-            <h1 class="elegantshadow">Code Coach Bootcamps</h1>
+            <h1 class="elegantshadow">Alberta Coding Bootcamps</h1>
         </div>
 
         <div class="main_banner">
@@ -43,43 +45,22 @@
         </div>
         <div class="recently_created_box">
             <div class="recently_created_header center_content">
-                <h3>Our Interactive Coding Bootcamps</h3>
+                <h1>Do you like the idea of having affordable, professional coding bootcamps for Albertans?</h1>
+                <h3>Upgrade Your Membership</h3>
             </div>
-        
-            <div class="recently_created_videos">
-                {% if cat_selected %}
-                    {% for course in cat_crs %}
-                    <div class="course_video">
-                        <a href="/course/{{ course.id }}">
-                            <img src="{% static 'user_app/images/course_img_placeholder.png' %}" alt="Course thumbnail" width='350' height='209'>
-                        </a>
-                        <p class="course_title">Title: {{ course.title }}</p>
-                        <p class="course_creator">Creator: {{ course.author.first_name}}</p>
-                        <p class="course_created_at">Created Date: {{ course.created_at}}</p>
-                        <p class="course_level">Premium Content {{ course.is_premium}}</p>
-
-                    </div>
-                    {% endfor %}
-                {% else %}
-                    {% for course in courses %}
-                    <div class="course_video">
-                        <!-- <iframe width="350" height="209"
-                        src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                        </iframe> -->
-                        <a href="/course/{{ course.id }}">
-                            <img src="{% static 'user_app/images/course_img_placeholder.png' %}" alt="Course thumbnail" width='350' height='209'>
-                        </a>
-                        <p class="course_title">Title: {{ course.title }}</p>
-                        <p class="course_creator">Creator: {{ course.author.first_name}}</p>
-                        <p class="course_created_at">Created Date: {{ course.created_at}}</p>
-                        <p class="course_level">Subscription Level: {% if course.is_premium%} Premium Content {% else %} Free Content {% endif %}</p>
-                    </div>
-                    {% endfor %}
-                {% endif %}
-
+            <p> 
+            Hello, my name is Dayne and I created Alberta Coding Bootcamps, an interactive website to teach Albertans data science, Python and coding.
+            Although my goal is to offer content for free, I have decided to create some premium content for members that choose to support the project.
+            This is necessary so the project can grow to cover costs of hosting, mailing lists, etc. If you can't afford to pay anything send me an email 
+            and I will upgrade your membership for free, however if you can afford please donate what you can so I can continue to grow the network and project.
+            
+            Thank You!
+            </p>
+            <div class="row center justify-content-center mt-5">
+           
+            <a class="btn btn-primary" href="https://www.patreon.com/preview/9a811c3326b341e8b0dd4d88a9eea19c">Become a Patreon</a>
+            <div> </div>
+            <a class="btn btn-secondary ml-3" href="paypal.me/albertabootcamps">Anonymous Donation</a>
             </div>
-        </div>
-
-    </div>
 </body>
 </html>
