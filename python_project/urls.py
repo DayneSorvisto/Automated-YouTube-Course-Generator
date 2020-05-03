@@ -44,6 +44,7 @@ urlpatterns = [
     url(r'^course/', include('apps.course_app.urls')),
     url(r'^course/', include('apps.video_app.urls')),
     url(r'^course/', include('apps.quiz_app.urls')),
+    url(r'^tutorials/', include('apps.tutorial_app.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^', include('apps.user_app.urls')),
 ]

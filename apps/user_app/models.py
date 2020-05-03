@@ -57,4 +57,5 @@ class User(models.Model):
     password_hash = models.CharField(max_length=255)
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
+    is_premium = models.BooleanField(default=False)
     objects = UserManager()

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, HttpResponse
 from apps.course_app.models import Course, Subject, Category
 from apps.video_app.models import Video
 from django.contrib import messages
+from apps.user_app.models import User
 
 def index(request):
     if 'cat_id' in request.session:
@@ -59,7 +60,10 @@ def read_course(request, course_id):
     course_passed = False
     author = False
     course_liked = False
+    course_premium = Course.objects.get(id=course_id).is_premium
+    user_premium = False 
     if 'user_id' in request.session:
+        user = User.objects.get(id=request.session['user_id']).is_premium
         #check if author        
         if request.session['user_id'] == Course.objects.get(id=course_id).author.id:
             author = True
@@ -89,7 +93,11 @@ def read_course(request, course_id):
         'course_passed': course_passed,
         'course_liked': course_liked,
     }
-    return render(request, "course_app/read.html", context)
+
+    #check if course is premium 
+    #get user 
+    
+    return HttpResponse("<h1> test </h1>") if (not user_premium and course_premium) else render(request, "course_app/read.html", context) 
 
 def delete_course(request, course_id):
     if Course.objects.filter(id=course_id) and request.session['user_id'] == Course.objects.get(id=course_id).author.id:

@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'apps.quiz_app',
     'apps.user_app',
     'apps.video_app',
+    'apps.tutorial_app',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

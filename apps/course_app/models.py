@@ -64,5 +64,6 @@ class Course(models.Model):
     author = models.ForeignKey(User, related_name="courses_authored")
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
+    is_premium = models.BooleanField(default=False)
     objects = CourseManager()
 

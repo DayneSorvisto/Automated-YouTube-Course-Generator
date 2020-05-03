@@ -31,42 +31,17 @@
                                 {% endfor %}
                             </ul>
                         </li>
+                        <li><a href="/tutorials/">Labs</a></li>
                         <li><a href="/course/create_course_form">Create</a></li>
-                        <!-- <li><a href="#">Resume</a>
-                            <ul>
-                                <li><a href="#">item a lonng submenu</a></li>
-                                <li><a href="#">item</a>
-                                    <ul>
-                                        <li><a href="#">Ray</a></li>
-                                        <li><a href="#">Veronica</a></li>
-                                        <li><a href="#">Bushy</a></li>
-                                        <li><a href="#">Havoc</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">item</a></li>
-                                <li><a href="#">item</a></li>
-                            </ul>
-                        </li> -->
-                        <!-- <li><a href="#">Download</a></li> -->
-                        <!-- <li><a href="#">Rants</a>
-                            <ul>
-                                <li><a href="#">item</a></li>
-                                <li><a href="#">item</a></li>
-                                <li><a href="#">item</a></li>
-                                <li><a href="#">item</a></li>
-                            </ul>
-                        </li> -->
                         <li><a href="/profile">Profile</a></li>
                         <li><a href="/logout">Logout</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
-
-        <!-- TODO utilize the same section but change the wording and video output when a category is clicked -->
         <div class="recently_created_box">
             <div class="recently_created_header center_content">
-                <h3>Recently Created Courses</h3>
+                <h3>Our Interactive Coding Bootcamps</h3>
             </div>
         
             <div class="recently_created_videos">
@@ -79,6 +54,8 @@
                         <p class="course_title">Title: {{ course.title }}</p>
                         <p class="course_creator">Creator: {{ course.author.first_name}}</p>
                         <p class="course_created_at">Created Date: {{ course.created_at}}</p>
+                        <p class="course_level">Premium Content {{ course.is_premium}}</p>
+
                     </div>
                     {% endfor %}
                 {% else %}
@@ -93,6 +70,7 @@
                         <p class="course_title">Title: {{ course.title }}</p>
                         <p class="course_creator">Creator: {{ course.author.first_name}}</p>
                         <p class="course_created_at">Created Date: {{ course.created_at}}</p>
+                        <p class="course_level">Subscription Level: {% if course.is_premium%} Premium Content {% else %} Free Content {% endif %}</p>
                     </div>
                     {% endfor %}
                 {% endif %}
