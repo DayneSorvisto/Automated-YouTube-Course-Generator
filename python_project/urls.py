@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-
+''' 
+#may 04 2020
 from apps.user_app.models import User as U
 class UAdmin(admin.ModelAdmin):
     pass
@@ -38,7 +39,7 @@ from apps.course_app.models import Course
 class CourseAdmin(admin.ModelAdmin):
     pass
 admin.site.register(Course, CourseAdmin)
-
+ '''
 
 urlpatterns = [
     url(r'^course/', include('apps.course_app.urls')),

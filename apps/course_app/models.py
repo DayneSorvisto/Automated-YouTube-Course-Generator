@@ -16,7 +16,7 @@ class CourseManager(models.Manager):
         return errors
 
     def create_course(self, user_id, category_id, subject_id, form):
-        new_course = self.create(subject = Subject.objects.get(id=subject_id), category = Category.objects.get(id=category_id), title = form['title'], description = form['description'], author = User.objects.get(id = user_id))
+        new_course = self.create(subject = Subject.objects.get(id=subject_id), category = Category.objects.get(id=category_id), title = form['title'], description = form['description'], author = User.objects.get(id = user_id), instructions=form['instructions'])
         return new_course
     
     def delete_course(self, course_id):
@@ -65,5 +65,11 @@ class Course(models.Model):
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
     is_premium = models.BooleanField(default=False)
+    is_approved = models.BooleanField(default=False)
+    instructions = models.CharField(null=True, max_length=5000)
     objects = CourseManager()
+
+    def __str__(self):
+        return self.title
+
 

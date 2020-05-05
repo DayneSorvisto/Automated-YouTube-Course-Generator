@@ -9,14 +9,14 @@ def index(request):
         context={
         "category": Category.objects.all(),
         "courses": Course.objects.all().order_by('-created_at')[:6],
-        'cat_crs': Course.objects.filter(category=Category.objects.get(id=request.session['cat_id'])),
+        'cat_crs': Course.objects.filter(is_approved=True).filter(category=Category.objects.get(id=request.session['cat_id'])),
         'cat_selected': True,
         }
         del request.session['cat_id']
     else:
         context={
             "category": Category.objects.all(),
-            "courses": Course.objects.all().order_by('-created_at')[:6],
+            "courses": Course.objects.filter(is_approved=True).all().order_by('-created_at')[:6],
             'cat_selected': False,
         }
     return render(request, "course_app/courses.html", context) 
@@ -61,6 +61,7 @@ def read_course(request, course_id):
     author = False
     course_liked = False
     course_premium = Course.objects.get(id=course_id).is_premium
+    course_instructions = Course.objects.get(id=course_id).instructions
     user_premium = False 
     if 'user_id' in request.session:
         user = User.objects.get(id=request.session['user_id']).is_premium
@@ -92,6 +93,7 @@ def read_course(request, course_id):
         'author': author,
         'course_passed': course_passed,
         'course_liked': course_liked,
+        'instructions': course_instructions
     }
 
     #check if course is premium 

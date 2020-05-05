@@ -50,6 +50,8 @@ class UserManager(models.Manager):
         user.save()
         return
 
+
+
 class User(models.Model):
     first_name = models.CharField(max_length=45)
     last_name = models.CharField(max_length=45)
@@ -59,3 +61,6 @@ class User(models.Model):
     updated_at = models.DateField(auto_now=True)
     is_premium = models.BooleanField(default=False)
     objects = UserManager()
+
+    def __str__(self):
+        return self.email

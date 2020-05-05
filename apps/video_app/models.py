@@ -17,7 +17,7 @@ class VideoManager(models.Manager):
     def create_video(self, course_id, form):
         thumbnail = "https://img.youtube.com/vi/" + form['url'].split('=')[-1] + "/0.jpg" #splits the video id out of the full url then concats to the YouTube thumbnail path
         url = "https://www.youtube.com/embed/" + form['url'].split('=')[-1] #splits the video id out of the full url then concats to the YouTube embed path
-        new_video = self.create(title = form['title'], thumbnail = thumbnail, url = url, description = form['description'], course = Course.objects.get(id = course_id), content_provider = form['content_provider'])
+        new_video = self.create(title = form['title'], thumbnail = thumbnail, url = url, description = form['description'], course = Course.objects.get(id = course_id))
         return new_video
     
     def delete_video(self, video_id):
@@ -59,5 +59,7 @@ class Video(models.Model):
     updated_at = models.DateField(auto_now=True)
     course = models.ForeignKey(Course, related_name='videos')
     users_completed = models.ManyToManyField(User, related_name="videos_completed")
-    content_provider = models.CharField(default="YouTube",max_length=50)
     objects = VideoManager()
+
+    def __str__(self):
+        return self.title

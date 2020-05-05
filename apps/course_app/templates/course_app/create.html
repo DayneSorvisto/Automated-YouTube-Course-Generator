@@ -93,40 +93,11 @@
                     <textarea name="description" class="form-control" id="description" placeholder="Brief description about the course"></textarea>
                 </div>
             </div>
-            <!-- <div class="form-group">
-                <label for="title">Title</label>
-                <input name="title" type="text" class="form-control" id="title" placeholder="Title">
-            </div> -->
-            <!-- <div class="form-group">
-                <label for="subject_id">Select Subject</label>
-                <select name="subject_id" class="form-control" id="subject_id">
-                    <option value="">Please select or add a Subject</option>
-                    {% for subject in subjects %}
-                    <option value="{{ subject.id }}" >{{ subject.name }}</option>
-                    {% endfor %}
-                </select>
-            </div> -->
-            <!-- <div class="form-group">
-                    <label for="subject_name">Add Subject</label>
-                    <input name="subject_name" type="text" class="form-control" id="subject_name" placeholder="Add Subject">
-            </div> -->
-            <!-- <div class="form-group">
-                <label for="category_id">Select Category</label>
-                <select name="category_id" class="form-control" id="category_id">
-                    <option value="">Please select or add a Category</option>
-                    {% for category in categories %}
-                    <option value="{{ category.id }}" >{{ category.name }}</option>
-                    {% endfor %}
-                </select>
-            </div>
+    
             <div class="form-group">
-                <label for="category_name">Add Category</label>
-                <input name="category_name" type="text" class="form-control" id="category_name" placeholder="Add Category">
-            </div> -->
-            <!-- <div class="form-group">
-                <label for="description">Description</label>
-                <textarea name="description" class="form-control" id="description" rows="3"></textarea>
-            </div>-->
+                <label for="instructions">Instructions</label>
+                <textarea name="instructions" class="form-control" id="instructions" rows="3"></textarea>
+            </div> 
             <button type="submit" class="btn btn-primary">Submit</button>
             <a href="/course"><button type="button" class="btn btn-success">Cancel</button></a> 
         </form>

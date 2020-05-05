@@ -11,8 +11,40 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
  
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'user_app/css/style.css' %}">
 </head>
 <body>
+    <div class="container">
+        <div class="welcome_box center_content">
+            <h1 class="elegantshadow">Course: {{ course.title }}</h1>
+        </div>
+
+        <div class="main_banner">
+            <div class="background_img"></div>
+            <div class="nav_box">
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/course">Home</a></li>
+                        <li><a href="/course/#">Category</a>
+                            <ul>
+                                <!-- TODO JQuery to update the courses content once a category has been selected -->
+                                {% for cat in category %}
+                                <li><a href="/course/select_crs/{{cat.id}}">{{cat.name}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li><a href="/course/create_course_form">Create</a></li>
+                        <li><a href="/profile">Profile</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
+
+
 <div class="container">
   <h2>Tutorials</h2>
   <p>Take a look at some of the walkthroughs and tutorials we've created</p>
