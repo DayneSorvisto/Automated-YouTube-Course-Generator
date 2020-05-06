@@ -28,8 +28,7 @@
                         <li><a href="/course">Home</a></li>
                         <li><a href="/course/#">Category</a>
                             <ul>
-                                <!-- TODO JQuery to update the courses content once a category has been selected -->
-                                {% for cat in category %}
+                                 {% for cat in category %}
                                 <li><a href="/course/select_crs/{{cat.id}}">{{cat.name}}</a></li>
                                 {% endfor %}
                             </ul>
@@ -46,16 +45,16 @@
 
 
 <div class="container">
-  <h2>Tutorials</h2>
-  <p>Take a look at some of the walkthroughs and tutorials we've created</p>
+  <h2>Labs/Tutorials</h2>
+  <p>Take a look at some of the walkthroughs and tutorials we've created for our Python course. Download them on github by clicking Download Lab/p>
  <div class="row row-1"> 
   <div class="col">
   <div class="card img-fluid" style="width:500px">
     <img class="card-img-top" src="https://cdn.freebiesupply.com/logos/large/2x/python-5-logo-png-transparent.png" alt="Card image" style="width:100%">
     <div class="card-img-overlay">
-      <h4 class="card-title">John Doe</h4>
-      <p class="card-text">Some example text some example text. Some example text some example text. Some example text some example text. Some example text some example text.</p>
-      <a href="#" class="btn btn-primary">See Profile</a>
+      <h4 class="card-title">Alberta Python Bootcamp - Lab #1 April 28 2020</h4>
+      <p class="card-text">Our first lab. We look at how to change the theme of your notebook with jupyterthemes.</p>
+      <a href="https://github.com/wldataconsulting/AlbertaPythonCourse/tree/master/Lab1" class="btn btn-primary">Download Lab</a>
     </div>
   </div>
 </div>
@@ -63,9 +62,9 @@
    <div class="card img-fluid" style="width:500px">
     <img class="card-img-top" src="https://cdn.freebiesupply.com/logos/large/2x/python-5-logo-png-transparent.png" alt="Card image" style="width:100%">
     <div class="card-img-overlay">
-      <h4 class="card-title">John Doe</h4>
-      <p class="card-text">Some example text some example text. Some example text some example text. Some example text some example text. Some example text some example text.</p>
-      <a href="#" class="btn btn-primary">See Profile</a>
+      <h4 class="card-title">Alberta Python Bootcamp - Lab #2 May 05 2020</h4>
+      <p class="card-text">Only second week of our Python bootcamp for Albertans we look at strings, slicing strings and string methods</p>
+      <a href="https://github.com/wldataconsulting/AlbertaPythonCourse/tree/master/Lab2" class="btn btn-primary">Download Lab</a>
     </div>
   </div>
 </div> 
