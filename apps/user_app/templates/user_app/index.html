@@ -5,19 +5,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'user_app/home/css/bootstrap.min.css' %}">
+
+	<!-- Frameworks Bootrtrap Fullscreen modal -->
+	<link rel="stylesheet" type="text/css" href="{% static 'user_app/home/css/bootstrap-modal-carousel.css' %}">
+
+	<!-- Animated css -->
+	<link rel="stylesheet" type="text/css" href="{% static 'user_app/home/css/animated-text.css' %}">
+
+	<!-- Custom css -->
+	<link rel="stylesheet" type="text/css" href="{% static 'user_app/home/css/custom.css' %}">
+
+	<!-- Owl Carousel css -->
+	<link rel="stylesheet" type="text/css" href="{% static 'user_app/home/css/owl.carousel.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'user_app/home/css/owl.theme.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'user_app/home/css/owl.transitions.css' %}">
+
+	<!-- Animate css -->
+	<link rel="stylesheet" type="text/css" href="{% static 'user_app/home/css/animate.css' %}">
+
+	<!-- Themify icon -->
+	<link rel="stylesheet" type="text/css" href="{% static 'user_app/home/css/themify-icons.css' %}">
+
+	<!-- Google fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600italic' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Poppins:400,300,500' rel='stylesheet' type='text/css'>
+    
+    
+    
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    {% load static %}
+
     <link rel="stylesheet" href="{% static 'user_app/css/style.css' %}">
     <script src="{% static 'user_app/js/index.js' %}" defer></script>
     <title>Welcome</title>
 </head>
 
-<body>
+<body id="page-top" class="index">
+<!-- Preloader -->
+	<div id="loader">
+		<div class="icon"></div>
+	</div>
+<!-- End : Preloader -->
+
+<!-- Header -->
+<header class="header-img">
+	<div class="header-overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-left">
+					<h1>Alberta Coding Bootcamps</h1>
+					<h2 class="cd-headline clip is-full-width">
+						<span class="cd-words-wrapper">
+							<b class="is-visible">Learn to Code <br class="visible-xs"> Learn Data Science</b>
+							<b>Transition Your Career</b>
+							<b>Mentorship &amp; <br class="visible-xs">Micro Courses</b>
+						</span>
+					</h2>
+					<a href="#class_signup" class="page-scroll btn custom-btn-3">GO TO CLASS</a>
+				</div>
+			</div>
+		</div>
+</header>
+<!-- END: Header -->
+
+<!-- About -->
+<section id="about">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="sub-headline">What I do<span class="dot">.</span></h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-md-6 wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+				<span class="fa fa-"></span>
+				<h3><span class="number">1. </span>Website Layout</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+			<div class="col-md-3 col-md-6 wow fadeInLeft" data-wow-duration="1.2s" data-wow-delay="1.2s">
+				<h3><span class="number">2. </span>Responsive Website</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+			<div class="col-md-3 col-md-6 wow fadeInLeft" data-wow-duration="1.4s" data-wow-delay="1.4s">
+				<h3><span class="number">3. </span>Creative Template</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+			<div class="col-md-3 col-md-6 wow fadeInLeft" data-wow-duration="1.7s" data-wow-delay="1.7s">
+				<h3><span class="number">4. </span>Website Design</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END About -->
+<!-- Milestone counter -->
+<section id="milestone">
+	<div class="container">
+		<div class="row sub-icon">
+			<div class="mile-overlay"></div>
+			<div class="col-md-3 col-sm-3 col-xs-6 text-center">
+				<h2 class="counter">804</h2>
+				<h3><span class="ti-package"></span>Project</h3>
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-6 text-center">
+				<h2 class="counter">1024</h2>
+				<h3><span class="ti-download"></span>Download</h3>
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-6 text-center">
+				<h2 class="counter">532</h2>
+				<h3><span class="ti-heart"></span>Clients</h3>
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-6 text-center">
+				<h2 class="counter">278</h2>
+				<h3><span class="ti-cup"></span>Awards</h3>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END Milestone -->
+<section id="class_signup">
+
     <div class="container">
         <div class="welcome_box center_content">
-            <h1 class="elegantshadow">Code Coach: Interactive Bootcamps for Data Scientists</h1>
+            <h1 class="elegantshadow">Interactive Coding Bootcamps</h1>
         </div>
 
         <div class="main_banner">
@@ -30,7 +148,7 @@
             <div class="left_box">
                 <div class="box_header">
                     <h4>Sign Up for Class</h4>
-                    <p>Demo Email: guest@gmail.com - Password: Testing123</p>
+                    <p>Learn SQL, Python, Business Intelligence and more ...</p>
                 </div>
                 <form id="register_form" action="/register_user" method="POST">
                     {% csrf_token %}
@@ -123,7 +241,7 @@
             <div class="right_box">
                 <div class="box_header">
                     <h4>Login</h4>
-                    <p>Demo Email: guest@gmail.com - Password: Testing123</p>
+                    <p>Already a Student?</p>
                 </div>
                 <form id="#login_form" action="/login" method="POST">
                     {% csrf_token %}
@@ -161,7 +279,7 @@
                 </form>
             </div>
             <!-- end right -->
-
+</section>
         </div>
         {% if messages %}
         {% for message in messages %}
@@ -171,6 +289,40 @@
         {% endfor %}
         {% endif %}
     </div>
+
+    <!-- Footer -->
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<ul class="list-inline social-icon">
+					<li><a href="https://www.facebook.com/rahmandikahaekal" target="_blank"><span class="ti-facebook"></span></a></li>
+					<li><a href="https://plus.google.com/u/1/101470064643901168996" target="_blank"><span class="ti-google"></span></a></li>
+					<li><a href="https://www.instagram.com/rahmandikahaekal/" target="_blank"><span class="ti-instagram"></span></a></li>
+					<li><a href="https://www.linkedin.com/in/rahmandika-haekal-537b54120?trk=nav_responsive_tab_profile" target="_blank"><span class="ti-linkedin"></span></a></li>
+					<li><a href="https://github.com/rahmandikahaekal" target="_blank"><span class="ti-github"></span></a></li>
+				</ul>					
+			</div>
+		</div>
+	</div>	
+</footer>
+<!-- END: Footer -->
+
+
+    	<!-- javascript plugins -->
+		<script src="{% static 'user_app/home/js/jquery-1.11.1.min.js' %}"></script>
+		<script src="{% static 'user_app/home/js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'user_app/home/js/jquery.easing.1.3.min.js' %}"></script>
+		<script src="{% static 'user_app/home/js/appear.js'%}"></script>
+		<script src="{% static 'user_app/home/js/bootstrap-progressbar.min.js' %}"></script>
+		<script src="{% static 'user_app/home/js/owl.carousel.min.js'%}"></script>
+		<script src="{% static 'user_app/home/js/jquery.mixitup.min.js'%}"></script>
+		<script src="{% static 'user_app/home/js/waypoints.min.js' %}"></script>
+		<script src="{% static 'user_app/home/js/jquery.counterup.min.js' %}"></script>
+		<script src="{% static 'user_app/home/js/animated-jquery.js' %}"></script>
+		<script src="{% static 'user_app/home/js/wow.min.js'%}"></script>
+
+        <script src="{%static 'user_app/home/js/custom.js' %}"></script>	
 </body>
 
 </html>
