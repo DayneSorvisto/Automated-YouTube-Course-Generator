@@ -43,7 +43,7 @@
         </div>
         <div class="recently_created_box">
             <div class="recently_created_header center_content">
-                <h3>Our Interactive Coding Bootcamps</h3>
+                <h3>Interactive Bootcamps</h3>
             </div>
         
             <div class="recently_created_videos">
@@ -51,7 +51,7 @@
                     {% for course in cat_crs %}
                     <div class="course_video">
                         <a href="/course/{{ course.id }}">
-                            <img src="{% static 'user_app/images/course_img_placeholder.png' %}" alt="Course thumbnail" width='350' height='209'>
+                            <img src="{%static 'course_app/images/'|add:course.img %}" alt="Course thumbnail" width='350' height='209'>
                         </a>
                         <p class="course_title">Title: {{ course.title }}</p>
                         <p class="course_creator">Creator: {{ course.author.first_name}}</p>
@@ -67,8 +67,8 @@
                         src="https://www.youtube.com/embed/tgbNymZ7vqY">
                         </iframe> -->
                         <a href="/course/{{ course.id }}">
-                            <img src="{% static 'user_app/images/course_img_placeholder.png' %}" alt="Course thumbnail" width='350' height='209'>
-                        </a>
+                            <img src="{%static 'course_app/images/'|add:course.img %}" alt="Course thumbnail" width='350' height='209'>
+                        </a>"
                         <p class="course_title">Title: {{ course.title }}</p>
                         <p class="course_creator">Creator: {{ course.author.first_name}}</p>
                         <p class="course_created_at">Created Date: {{ course.created_at}}</p>

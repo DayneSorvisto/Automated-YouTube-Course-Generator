@@ -51,9 +51,15 @@ class CourseManager(models.Manager):
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return self.name 
 
 class Subject(models.Model):
     name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
 
 class Course(models.Model):
     title = models.CharField(max_length=255)
@@ -67,6 +73,7 @@ class Course(models.Model):
     is_premium = models.BooleanField(default=False)
     is_approved = models.BooleanField(default=False)
     instructions = models.CharField(null=True, max_length=5000)
+    img = models.CharField(null=True, max_length=255)
     objects = CourseManager()
 
     def __str__(self):
