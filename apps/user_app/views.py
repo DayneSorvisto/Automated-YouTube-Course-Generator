@@ -4,6 +4,7 @@ from .models import User
 from apps.video_app.models import Video
 from apps.course_app.models import Course, Category
 from django.contrib import messages
+from mailchimp3 import MailChimp
 
 def index(request):
     return render(request, 'user_app/index.html')
@@ -18,6 +19,14 @@ def register_user(request):
 
     # register user
     request.session['user_id'] = User.objects.register_user(request.POST)
+    #add to mailchimp mailing list
+    email = request.POST['email']
+    client = MailChimp(mc_api="685f293a60cf0527c9255794b55602fe-us19",mc_user="daynesorvisto")
+    try:
+        client.lists.members.create('7f8f2c9947', {'email_address' : email,'status':'subscribed'})
+    except Exception as e:
+        print(e) 
+        return redirect("/course")
     return redirect("/course")
 
 def login(request):
