@@ -17,24 +17,23 @@
 <body>
     <div class="container">
         <div class="welcome_box center_content">
-            <h1 class="elegantshadow">Course: {{ course.title }}</h1>
+            <h1 class="elegantshadow">Free Programming Resources: {{ course.title }}</h1>
         </div>
 
         <div class="main_banner">
-            <div class="background_img"></div>
+            {% comment %} <div class="background_img"></div> {% endcomment %}
             <div class="nav_box">
                 <nav>
                     <ul class="nav">
                         <li><a href="/course">Home</a></li>
-                        <li><a href="/course/#">Category</a>
+                        <li><a href="/course/#">Career Path</a>
                             <ul>
                                  {% for cat in category %}
                                 <li><a href="/course/select_crs/{{cat.id}}">{{cat.name}}</a></li>
                                 {% endfor %}
                             </ul>
                         </li>
-                        <li><a href="/course/create_course_form">Create</a></li>
-                        <li><a href="/profile">Profile</a></li>
+                        <li><a href="/profile">Progress</a></li>
                         <li><a href="/logout">Logout</a></li>
                     </ul>
                 </nav>
@@ -46,7 +45,7 @@
 
 <div class="container">
   <h2>Labs/Tutorials</h2>
-  <p>Take a look at some of the walkthroughs and tutorials we've created for our Python course. Download them on github by clicking Download Lab/p>
+  <p>Take a look at some of the walkthroughs and tutorials we've created for our Python course. Download them on github by clicking Download Lab</p>
  <div class="row row-1"> 
   <div class="col">
   <div class="card img-fluid" style="width:500px">

@@ -12,21 +12,21 @@
     
     {% load static %}
     <link rel="stylesheet" href="{% static 'user_app/css/style.css' %}">
-    <title>Dashboard</title>
+    <title>Learning Portal</title>
 </head>
 <body>
     <div class="container">
         <div class="welcome_box center_content">
-            <h1 class="elegantshadow">Code Coach Bootcamps</h1>
+            <h1 class="elegantshadow">Free Programming Resources</h1>
         </div>
 
         <div class="main_banner">
-            <div class="background_img"></div>
+            {% comment %} <div class="background_img"></div> {% endcomment %}
             <div class="nav_box">
                 <nav>
                     <ul class="nav">
                         <li><a href="/course">Home</a></li>
-                        <li><a href="#">Category</a>
+                        <li><a href="#">Career Path</a>
                             <ul>
                                 {% for cat in category %}
                                 <li><a href="/course/select_crs/{{cat.id}}">{{cat.name}}</a></li>
@@ -34,8 +34,8 @@
                             </ul>
                         </li>
                         <li><a href="/tutorials/">Labs</a></li>
-                        <li><a href="/course/create_course_form">Create</a></li>
-                        <li><a href="/profile">Profile</a></li>
+                        {% comment %} <li><a href="/course/create_course_form">Create</a></li> {% endcomment %}
+                        <li><a href="/profile">Progress</a></li>
                         <li><a href="/logout">Logout</a></li>
                     </ul>
                 </nav>
@@ -43,7 +43,7 @@
         </div>
         <div class="recently_created_box">
             <div class="recently_created_header center_content">
-                <h3>Interactive Bootcamps</h3>
+                <h3>Interactive Micro Courses</h3>
             </div>
         
             <div class="recently_created_videos">

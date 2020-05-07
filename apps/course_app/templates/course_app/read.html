@@ -18,7 +18,7 @@
 <body>
     <div class="container">
         <div class="welcome_box center_content">
-            <h1 class="elegantshadow">Course: {{ course.title }}</h1>
+            <h1 class="elegantshadow">Micro Course: {{ course.title }}</h1>
         </div>
 
         <div class="main_banner">
@@ -35,8 +35,8 @@
                                 {% endfor %}
                             </ul>
                         </li>
-                        <li><a href="/course/create_course_form">Create</a></li>
-                        <li><a href="/profile">Profile</a></li>
+                        {% comment %} <li><a href="/course/create_course_form">Create</a></li> {% endcomment %}
+                        <li><a href="/profile">Progress</a></li>
                         <li><a href="/logout">Logout</a></li>
                     </ul>
                 </nav>
@@ -82,7 +82,7 @@
                 <img class="thumbnail" src="{{ video.thumbnail }}" alt="video thumbnail">
                 <p>{{ video.description|truncatewords:10 }}</p>
                 <a href="/course/{{ course.id }}/video/{{ video.id }}">
-                    <button type="button" class="btn btn-primary">Start Video</button>
+                    <button type="button" class="btn btn-primary">Start Activity</button>
                 </a>
                 {% if author %}
                 <a href="/course/{{ course.id }}/video/{{ video.id }}/edit_video_form"><button type="button" class="btn btn-danger">Edit Video</button></a>
