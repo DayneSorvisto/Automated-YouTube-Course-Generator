@@ -15,12 +15,12 @@
             <h1 class="elegantshadow">Hello {{ user.first_name }}!</h1>
         </div>
         <div class="main_banner">
-            <div class="background_img"></div>
-            <div class="nav_box">
+{% comment %}             <div class="background_img"></div>
+ {% endcomment %}            <div class="nav_box">
                 <nav>
                     <ul class="nav">
                         <li><a href="/course">Home</a></li>
-                        <li><a href="#">Category</a>
+                        <li><a href="#">Career Track</a>
                             <ul>
                                 {% for cat in categories %}
                                 <li><a href="/course/select_crs/{{cat.id}}">{{cat.name}}</a></li>
@@ -28,7 +28,7 @@
                             </ul>
                         </li>
                         <li><a href="/course/create_course_form">Create</a></li>
-                        <li><a href="/profile">Profile</a></li>
+                        <li><a href="/profile">Progress</a></li>
                         <li><a href="/logout">Logout</a></li>
                     </ul>
                 </nav>
@@ -108,7 +108,7 @@
                     </a>
                     <p class="course_title">Title: {{ course.title|truncatewords:5 }}</p>
                     <p class="no_margin">Description: {{ course.description|truncatewords:10 }}</p>
-                    <p class="no_margin">Created Date: {{ course.created_at|date:'Y-m-d' }}</p>
+                    <p class="no_margin">Posted Date: {{ course.created_at|date:'Y-m-d' }}</p>
                 </div>
                 {% endfor %}
             </div>
