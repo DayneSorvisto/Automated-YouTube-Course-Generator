@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ course.title }}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     {% load static %}
     <link rel="stylesheet" href="{% static 'user_app/css/style.css' %}">
@@ -100,6 +99,20 @@
                 <!-- video code goes here -->
                 <h1>Instructions </h1>
                 {{course.instructions}}
+
+
+                   <h3>Python Scratch Pad</h3> 
+        <form> 
+        <textarea id="yourcode" cols="40" rows="10">print("Hello I'm a string!")
+        </textarea><br /> 
+        <button type="button" onclick="runit()">Run</button> 
+        </form> 
+        <pre id="output" ></pre> 
+        <!-- If you want turtle graphics include a canvas -->
+        <div id="mycanvas"></div> 
+
+        </div>
+    
             </div>
         </div>
         
@@ -141,22 +154,6 @@
         } 
         </script> 
 
-        <h3>Try This</h3> 
-        <form> 
-        <textarea id="yourcode" cols="40" rows="10">import turtle
-
-        t = turtle.Turtle()
-        t.forward(100)
-
-        print "Hello World" 
-        </textarea><br /> 
-        <button type="button" onclick="runit()">Run</button> 
-        </form> 
-        <pre id="output" ></pre> 
-        <!-- If you want turtle graphics include a canvas -->
-        <div id="mycanvas"></div> 
-
-        </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     
 </body>
 </html>
